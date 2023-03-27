@@ -56,15 +56,39 @@
 		80804F0A29D1BBC800DB0A7A /* CodeContests */ = {
 			isa = PBXGroup;
 			children = (
-				80804F0B29D1BBC800DB0A7A /* AppDelegate.swift */,
-				80804F0D29D1BBC800DB0A7A /* SceneDelegate.swift */,
-				80804F0F29D1BBC800DB0A7A /* ViewController.swift */,
-				80804F1129D1BBC800DB0A7A /* Main.storyboard */,
+				80804F1F29D1C4B400DB0A7A /* App */,
+				80804F2029D1C4BF00DB0A7A /* ViewControllers */,
+				80804F2129D1C4D400DB0A7A /* Storyboards */,
 				80804F1429D1BBCA00DB0A7A /* Assets.xcassets */,
-				80804F1629D1BBCA00DB0A7A /* LaunchScreen.storyboard */,
-				80804F1929D1BBCA00DB0A7A /* Info.plist */,
 			);
 			path = CodeContests;
+			sourceTree = "<group>";
+		};
+		80804F1F29D1C4B400DB0A7A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				80804F0B29D1BBC800DB0A7A /* AppDelegate.swift */,
+				80804F0D29D1BBC800DB0A7A /* SceneDelegate.swift */,
+				80804F1929D1BBCA00DB0A7A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		80804F2029D1C4BF00DB0A7A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				80804F0F29D1BBC800DB0A7A /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		80804F2129D1C4D400DB0A7A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				80804F1129D1BBC800DB0A7A /* Main.storyboard */,
+				80804F1629D1BBCA00DB0A7A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +313,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7VP863SW97;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CodeContests/Info.plist;
+				INFOPLIST_FILE = CodeContests/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7VP863SW97;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CodeContests/Info.plist;
+				INFOPLIST_FILE = CodeContests/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
