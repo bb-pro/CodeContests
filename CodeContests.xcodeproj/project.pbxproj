@@ -15,6 +15,7 @@
 		80804F1829D1BBCA00DB0A7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80804F1629D1BBCA00DB0A7A /* LaunchScreen.storyboard */; };
 		80804F2329D1C67500DB0A7A /* ContestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2229D1C67500DB0A7A /* ContestListViewController.swift */; };
 		80804F2529D1C68D00DB0A7A /* ContestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2429D1C68D00DB0A7A /* ContestInfoViewController.swift */; };
+		80804F2929D1E25500DB0A7A /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2829D1E25500DB0A7A /* Contest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		80804F1929D1BBCA00DB0A7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80804F2229D1C67500DB0A7A /* ContestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestListViewController.swift; sourceTree = "<group>"; };
 		80804F2429D1C68D00DB0A7A /* ContestInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestInfoViewController.swift; sourceTree = "<group>"; };
+		80804F2829D1E25500DB0A7A /* Contest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,8 @@
 		80804F0A29D1BBC800DB0A7A /* CodeContests */ = {
 			isa = PBXGroup;
 			children = (
+				80804F2729D1E1B500DB0A7A /* Models */,
+				80804F2629D1E1AC00DB0A7A /* Services */,
 				80804F1F29D1C4B400DB0A7A /* App */,
 				80804F2029D1C4BF00DB0A7A /* ViewControllers */,
 				80804F2129D1C4D400DB0A7A /* Storyboards */,
@@ -95,6 +99,21 @@
 				80804F1629D1BBCA00DB0A7A /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		80804F2629D1E1AC00DB0A7A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		80804F2729D1E1B500DB0A7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80804F2829D1E25500DB0A7A /* Contest.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +189,7 @@
 			files = (
 				80804F1029D1BBC800DB0A7A /* StartingViewController.swift in Sources */,
 				80804F2329D1C67500DB0A7A /* ContestListViewController.swift in Sources */,
+				80804F2929D1E25500DB0A7A /* Contest.swift in Sources */,
 				80804F0C29D1BBC800DB0A7A /* AppDelegate.swift in Sources */,
 				80804F2529D1C68D00DB0A7A /* ContestInfoViewController.swift in Sources */,
 				80804F0E29D1BBC800DB0A7A /* SceneDelegate.swift in Sources */,
