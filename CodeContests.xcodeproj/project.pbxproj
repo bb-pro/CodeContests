@@ -16,6 +16,8 @@
 		80804F2329D1C67500DB0A7A /* ContestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2229D1C67500DB0A7A /* ContestListViewController.swift */; };
 		80804F2529D1C68D00DB0A7A /* ContestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2429D1C68D00DB0A7A /* ContestInfoViewController.swift */; };
 		80804F2929D1E25500DB0A7A /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2829D1E25500DB0A7A /* Contest.swift */; };
+		80804F2B29D1E53400DB0A7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F2A29D1E53400DB0A7A /* NetworkManager.swift */; };
+		80804F2E29D1E62F00DB0A7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 80804F2D29D1E62F00DB0A7A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		80804F2229D1C67500DB0A7A /* ContestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestListViewController.swift; sourceTree = "<group>"; };
 		80804F2429D1C68D00DB0A7A /* ContestInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestInfoViewController.swift; sourceTree = "<group>"; };
 		80804F2829D1E25500DB0A7A /* Contest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contest.swift; sourceTree = "<group>"; };
+		80804F2A29D1E53400DB0A7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80804F2E29D1E62F00DB0A7A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +108,7 @@
 		80804F2629D1E1AC00DB0A7A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				80804F2A29D1E53400DB0A7A /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -132,6 +137,9 @@
 			dependencies = (
 			);
 			name = CodeContests;
+			packageProductDependencies = (
+				80804F2D29D1E62F00DB0A7A /* Alamofire */,
+			);
 			productName = CodeContests;
 			productReference = 80804F0829D1BBC800DB0A7A /* CodeContests.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 80804EFF29D1BBC800DB0A7A;
+			packageReferences = (
+				80804F2C29D1E62F00DB0A7A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 80804F0929D1BBC800DB0A7A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -190,6 +201,7 @@
 				80804F1029D1BBC800DB0A7A /* StartingViewController.swift in Sources */,
 				80804F2329D1C67500DB0A7A /* ContestListViewController.swift in Sources */,
 				80804F2929D1E25500DB0A7A /* Contest.swift in Sources */,
+				80804F2B29D1E53400DB0A7A /* NetworkManager.swift in Sources */,
 				80804F0C29D1BBC800DB0A7A /* AppDelegate.swift in Sources */,
 				80804F2529D1C68D00DB0A7A /* ContestInfoViewController.swift in Sources */,
 				80804F0E29D1BBC800DB0A7A /* SceneDelegate.swift in Sources */,
@@ -410,6 +422,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80804F2C29D1E62F00DB0A7A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80804F2D29D1E62F00DB0A7A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80804F2C29D1E62F00DB0A7A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 80804F0029D1BBC800DB0A7A /* Project object */;
 }

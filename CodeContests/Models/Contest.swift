@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Contest {
+struct Contest: Decodable {
     let name: String
     let url: String
     let startTime: String
