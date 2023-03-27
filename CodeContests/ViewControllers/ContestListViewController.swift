@@ -45,10 +45,10 @@ extension ContestListViewController {
         cell.contentConfiguration = content
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
     }
-    
 }
 
 //MARK: - UITableViewDelegate
