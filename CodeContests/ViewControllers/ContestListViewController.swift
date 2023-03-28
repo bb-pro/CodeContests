@@ -14,11 +14,10 @@ final class ContestListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "contestCell")
         fetchContest()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let contestInfoVC = segue.destination as? ContestInfoViewController else {
             return
@@ -27,6 +26,8 @@ final class ContestListViewController: UITableViewController {
         contestInfoVC.contest = contests[indexPath.row]
     }
 }
+
+
 // MARK: - Table view data source
 extension ContestListViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,7 +100,7 @@ extension ContestListViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
+//MARK: - Networking
 private extension ContestListViewController {
     func fetchContest() {
         NetworkManager.shared.fetchContests(from: url) { [weak self] result in
