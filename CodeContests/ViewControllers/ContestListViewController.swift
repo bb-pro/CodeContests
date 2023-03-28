@@ -14,6 +14,9 @@ final class ContestListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "contestCell")
         fetchContest()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,6 +51,45 @@ extension ContestListViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            contests.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let love = favouriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [love])
+    }
+    
+    func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
+        var object = contests[indexPath.row]
+        let action  = UIContextualAction(style: .normal, title: "Like") { (action, view, completion) in
+            object.isFavourite = !object.isFavourite
+            self.contests[indexPath.row] = object
+            completion (true)
+        }
+        action.backgroundColor = object.isFavourite ? .systemPurple : .systemGray
+        action.image = UIImage(systemName: "heart")
+        return action
+    }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let contestCell = contests.remove(at: sourceIndexPath.row)
+        contests.insert(contestCell, at: destinationIndexPath.row)
+        tableView.reloadData()
     }
 }
 

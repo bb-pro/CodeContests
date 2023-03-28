@@ -13,6 +13,7 @@ struct Contest: Decodable {
     let startTime: String
     let endTime: String
     let site: String
+    var isFavourite = false
     
     init(name: String, url: String, startTime: String, endTime: String, site: String) {
         self.name = name
