@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol ContestListViewControllerDelegate: AnyObject {
+    func sendDataToFavourites(data: [Contest])
+}
+
 final class ContestListViewController: UITableViewController {
+    
     private let url = URL(string: "https://kontests.net/api/v1/all")!
     private let networkManager = NetworkManager.shared
     private var contests: [Contest] = []
+    private var favourites: [Contest] = []
+    
+    weak var delegate: ContestListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +42,7 @@ extension ContestListViewController {
         // #warning Incomplete implementation, return the number of sections
         1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         contests.count
@@ -67,8 +75,8 @@ extension ContestListViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let love = favouriteAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [love])
+        let favourite = favouriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [favourite])
     }
     
     func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
@@ -92,7 +100,18 @@ extension ContestListViewController {
         contests.insert(contestCell, at: destinationIndexPath.row)
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        contests.forEach { contest in
+            if contest.isFavourite && !favourites.contains(where: { $0.isFavourite }) {
+                favourites.append(contest)
+            }
+        }
+        delegate?.sendDataToFavourites(data: favourites)
+    }
+    
 }
+
 
 //MARK: - UITableViewDelegate
 extension ContestListViewController {
