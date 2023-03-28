@@ -1,11 +1,6 @@
 Coding Contests App
 
-Welcome to the Coding Contests App! This app provides a l![IMG_2746](https://user-images.githubusercontent.com/123092077/228135391-86665e78-adb9-4c6a-8474-82db16113095.PNG)
-![IMG_2747](https://user-images.githubusercontent.com/123092077/228135415-5c03d059-6ea4-487b-bf8c-0f7111805f53.PNG)
-![IMG_2748](https://user-images.githubusercontent.com/123092077/228135421-29b66437-4ae0-4d5e-a20e-9c8d0fe361a7.PNG)
-![IMG_2749](https://user-images.githubusercontent.com/123092077/228135427-043adc52-f9fe-4969-a1d3-01f2332e6ad8.PNG)
-![IMG_2750](https://user-images.githubusercontent.com/123092077/228135437-07850055-525a-4905-b191-3c7ee4234c0f.PNG)
-ist of coding contests along with detailed information about each contest.
+Welcome to the Coding Contests App! This app provides a list of coding contests along with detailed information about each contest.
 Features
 
     List of coding contests
@@ -21,6 +16,8 @@ To install the Coding Contests App, follow these steps:
     Tap "Get" to download and install the app.
 
 Usage
+<img src="https://user-images.githubusercontent.com/123092077/228135391-86665e78-adb9-4c6a-8474-82db16113095.PNG" alt="IMG_2746" width="300" height="400">
+
 
 When you open the Coding Contests App, you will see a list of coding contests. Each contest will display the name, start date, end date, and a brief description.
 
