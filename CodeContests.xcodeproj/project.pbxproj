@@ -20,6 +20,7 @@
 		80804F2E29D1E62F00DB0A7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 80804F2D29D1E62F00DB0A7A /* Alamofire */; };
 		80B2B13829D2B4D900C42CFD /* FavouriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2B13729D2B4D900C42CFD /* FavouriteListViewController.swift */; };
 		80B2B13A29D2B65D00C42CFD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2B13929D2B65D00C42CFD /* TabBarViewController.swift */; };
+		80B2B13D29D2EE4D00C42CFD /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2B13C29D2EE4D00C42CFD /* Extension + UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		80804F2A29D1E53400DB0A7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		80B2B13729D2B4D900C42CFD /* FavouriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListViewController.swift; sourceTree = "<group>"; };
 		80B2B13929D2B65D00C42CFD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		80B2B13C29D2EE4D00C42CFD /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		80804F0A29D1BBC800DB0A7A /* CodeContests */ = {
 			isa = PBXGroup;
 			children = (
+				80B2B13B29D2EE3100C42CFD /* Extensions */,
 				80804F2729D1E1B500DB0A7A /* Models */,
 				80804F2629D1E1AC00DB0A7A /* Services */,
 				80804F1F29D1C4B400DB0A7A /* App */,
@@ -125,6 +128,14 @@
 				80804F2829D1E25500DB0A7A /* Contest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		80B2B13B29D2EE3100C42CFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80B2B13C29D2EE4D00C42CFD /* Extension + UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 				80804F2B29D1E53400DB0A7A /* NetworkManager.swift in Sources */,
 				80B2B13A29D2B65D00C42CFD /* TabBarViewController.swift in Sources */,
 				80B2B13829D2B4D900C42CFD /* FavouriteListViewController.swift in Sources */,
+				80B2B13D29D2EE4D00C42CFD /* Extension + UIView.swift in Sources */,
 				80804F0C29D1BBC800DB0A7A /* AppDelegate.swift in Sources */,
 				80804F2529D1C68D00DB0A7A /* ContestInfoViewController.swift in Sources */,
 				80804F0E29D1BBC800DB0A7A /* SceneDelegate.swift in Sources */,

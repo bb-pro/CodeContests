@@ -20,6 +20,7 @@ final class ContestInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addVerticalGradientLayer()
         updateUI()
     }
     

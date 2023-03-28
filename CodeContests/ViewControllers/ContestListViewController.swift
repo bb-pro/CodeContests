@@ -13,15 +13,26 @@ protocol ContestListViewControllerDelegate: AnyObject {
 
 final class ContestListViewController: UITableViewController {
     
+    
     private let url = URL(string: "https://kontests.net/api/v1/all")!
     private let networkManager = NetworkManager.shared
+    private let searchController = UISearchController(searchResultsController: nil)
     private var contests: [Contest] = []
+    private var contest: Contest?
     private var favourites: [Contest] = []
-    
+    private var filteredContests: [Contest] = []
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     weak var delegate: ContestListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSearchController()
         fetchContest()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -32,6 +43,36 @@ final class ContestListViewController: UITableViewController {
         }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         contestInfoVC.contest = contests[indexPath.row]
+    }
+    // MARK: - Private methods
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .black
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .white
+        }
+    }
+
+}
+
+// MARK: - UISearchResultsUpdating
+extension ContestListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredContests = contests.filter { character in
+            character.name.lowercased().contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
     }
 }
 
@@ -45,13 +86,17 @@ extension ContestListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        contests.count
+        isFiltering ? filteredContests.count : contests.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contestCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let contest = contests[indexPath.row]
+        
+        let contest = isFiltering
+            ? filteredContests[indexPath.row]
+            : contests[indexPath.row]
+        contests[indexPath.row]
         content.text = contest.name
         content.image = UIImage(named: contest.site)
         cell.contentConfiguration = content
