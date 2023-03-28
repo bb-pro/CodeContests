@@ -20,6 +20,7 @@ final class ContestInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addVerticalGradientLayer()
         updateUI()
     }
     
@@ -30,5 +31,6 @@ final class ContestInfoViewController: UIViewController {
         endTime.text = contest.endTime
         siteLabel.text = contest.site
         imageView.image = UIImage(named: contest.site)
+        imageView.layer.cornerRadius = imageView.frame.width / 2
     }
 }

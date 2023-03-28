@@ -7,13 +7,32 @@
 
 import UIKit
 
+protocol ContestListViewControllerDelegate: AnyObject {
+    func sendDataToFavourites(data: [Contest])
+}
+
 final class ContestListViewController: UITableViewController {
+    
+    
     private let url = URL(string: "https://kontests.net/api/v1/all")!
     private let networkManager = NetworkManager.shared
+    private let searchController = UISearchController(searchResultsController: nil)
     private var contests: [Contest] = []
+    private var contest: Contest?
+    private var favourites: [Contest] = []
+    private var filteredContests: [Contest] = []
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    weak var delegate: ContestListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSearchController()
         fetchContest()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -25,6 +44,36 @@ final class ContestListViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         contestInfoVC.contest = contests[indexPath.row]
     }
+    // MARK: - Private methods
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .black
+        }
+    }
+
+}
+
+// MARK: - UISearchResultsUpdating
+extension ContestListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredContests = contests.filter { character in
+            character.name.lowercased().contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
+    }
 }
 
 
@@ -34,16 +83,19 @@ extension ContestListViewController {
         // #warning Incomplete implementation, return the number of sections
         1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        contests.count
+        isFiltering ? filteredContests.count : contests.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contestCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let contest = contests[indexPath.row]
+        
+        let contest = isFiltering
+            ? filteredContests[indexPath.row]
+            : contests[indexPath.row]
         content.text = contest.name
         content.image = UIImage(named: contest.site)
         cell.contentConfiguration = content
@@ -67,8 +119,8 @@ extension ContestListViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let love = favouriteAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [love])
+        let favourite = favouriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [favourite])
     }
     
     func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
@@ -92,7 +144,18 @@ extension ContestListViewController {
         contests.insert(contestCell, at: destinationIndexPath.row)
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        contests.forEach { contest in
+            if contest.isFavourite && !favourites.contains(where: { $0.isFavourite }) {
+                favourites.append(contest)
+            }
+        }
+        delegate?.sendDataToFavourites(data: favourites)
+    }
+    
 }
+
 
 //MARK: - UITableViewDelegate
 extension ContestListViewController {
