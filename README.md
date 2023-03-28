@@ -15,13 +15,16 @@ To install the Coding Contests App, follow these steps:
     Clone the repo from github.
     Tap "Get" to download and install the app.
 
-Usage
 <img src="https://user-images.githubusercontent.com/123092077/228135391-86665e78-adb9-4c6a-8474-82db16113095.PNG" alt="IMG_2746" width="250" height="400">
 <img src="https://user-images.githubusercontent.com/123092077/228135415-5c03d059-6ea4-487b-bf8c-0f7111805f53.PNG" alt="IMG_2747" width="250" height="400">
 <img src="https://user-images.githubusercontent.com/123092077/228135421-29b66437-4ae0-4d5e-a20e-9c8d0fe361a7.PNG" alt="IMG_2748" width="250" height="400">
 <img src="https://user-images.githubusercontent.com/123092077/228135427-043adc52-f9fe-4969-a1d3-01f2332e6ad8.PNG" alt="IMG_2749" width="250" height="400">
 <img src="https://user-images.githubusercontent.com/123092077/228135437-07850055-525a-4905-b191-3c7ee4234c0f.PNG" alt="IMG_2750" width="250" height="400">
 
+
+
+
+Usage
 
 When you open the Coding Contests App, you will see a list of coding contests. Each contest will display the name, start date, end date, and a brief description.
 
