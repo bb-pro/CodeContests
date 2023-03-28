@@ -49,13 +49,13 @@ final class ContestListViewController: UITableViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
-        searchController.searchBar.barTintColor = .black
+        searchController.searchBar.barTintColor = .white
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.font = UIFont.boldSystemFont(ofSize: 17)
-            textField.textColor = .white
+            textField.textColor = .black
         }
     }
 
@@ -96,7 +96,6 @@ extension ContestListViewController {
         let contest = isFiltering
             ? filteredContests[indexPath.row]
             : contests[indexPath.row]
-        contests[indexPath.row]
         content.text = contest.name
         content.image = UIImage(named: contest.site)
         cell.contentConfiguration = content
