@@ -7,21 +7,14 @@
 
 import Foundation
 
-struct Contest: Decodable {
+struct Contest {
     let name: String
     let url: String
     let startTime: String
     let endTime: String
     let site: String
     var isFavourite = false
-    
-    init(name: String, url: String, startTime: String, endTime: String, site: String) {
-        self.name = name
-        self.url = url
-        self.startTime = startTime
-        self.endTime = endTime
-        self.site = site
-    }
+    var isRegistered = false
     
     init(contestData: [String: Any]) {
         name = contestData["name"] as? String ?? ""
