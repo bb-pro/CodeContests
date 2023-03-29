@@ -33,4 +33,11 @@ final class ContestInfoViewController: UIViewController {
         imageView.image = UIImage(named: contest.site)
         imageView.layer.cornerRadius = imageView.frame.width / 2
     }
+    @IBAction func registerButtonPressed() {
+        guard let url = URL(string: contest.url) else { return }
+        
+        UIApplication.shared.open(url)
+        contest.isRegistered = true
+    }
+    
 }
