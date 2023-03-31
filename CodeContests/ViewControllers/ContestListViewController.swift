@@ -13,7 +13,6 @@ protocol ContestListViewControllerDelegate: AnyObject {
 
 final class ContestListViewController: UITableViewController {
     
-    
     private let url = URL(string: "https://kontests.net/api/v1/all")!
     private let networkManager = NetworkManager.shared
     private let searchController = UISearchController(searchResultsController: nil)
