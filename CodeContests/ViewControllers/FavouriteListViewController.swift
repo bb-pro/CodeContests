@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouriteListViewController: UITableViewController {
+final class FavouriteListViewController: UITableViewController {
     var favouriteContests: [Contest] = []
 
     override func viewWillAppear(_ animated: Bool) {
