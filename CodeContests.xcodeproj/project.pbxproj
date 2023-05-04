@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8076AC7E2A03637700A24FB9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8076AC7D2A03637700A24FB9 /* WebViewController.swift */; };
 		80804F0C29D1BBC800DB0A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F0B29D1BBC800DB0A7A /* AppDelegate.swift */; };
 		80804F0E29D1BBC800DB0A7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F0D29D1BBC800DB0A7A /* SceneDelegate.swift */; };
 		80804F1029D1BBC800DB0A7A /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80804F0F29D1BBC800DB0A7A /* StartingViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8076AC7D2A03637700A24FB9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		80804F0829D1BBC800DB0A7A /* CodeContests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeContests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80804F0B29D1BBC800DB0A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80804F0D29D1BBC800DB0A7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,11 +98,12 @@
 		80804F2029D1C4BF00DB0A7A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				80B2B13929D2B65D00C42CFD /* TabBarViewController.swift */,
 				80804F0F29D1BBC800DB0A7A /* StartingViewController.swift */,
 				80804F2229D1C67500DB0A7A /* ContestListViewController.swift */,
-				80804F2429D1C68D00DB0A7A /* ContestInfoViewController.swift */,
 				80B2B13729D2B4D900C42CFD /* FavouriteListViewController.swift */,
-				80B2B13929D2B65D00C42CFD /* TabBarViewController.swift */,
+				80804F2429D1C68D00DB0A7A /* ContestInfoViewController.swift */,
+				8076AC7D2A03637700A24FB9 /* WebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80804F1029D1BBC800DB0A7A /* StartingViewController.swift in Sources */,
+				8076AC7E2A03637700A24FB9 /* WebViewController.swift in Sources */,
 				80804F2329D1C67500DB0A7A /* ContestListViewController.swift in Sources */,
 				80804F2929D1E25500DB0A7A /* Contest.swift in Sources */,
 				80804F2B29D1E53400DB0A7A /* NetworkManager.swift in Sources */,

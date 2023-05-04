@@ -20,8 +20,20 @@ final class ContestInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addVerticalGradientLayer()
+        
         updateUI()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let webVC = segue.destination as? WebViewController else { return }
+        guard let url = URL(string: contest.url) else { return }
+        webVC.contestURL = url
+    }
+    
+    @IBAction func registerButtonPressed() {
+//        guard let url = URL(string: contest.url) else { return }
+//        
+//        UIApplication.shared.open(url)
+        contest.isRegistered = true
     }
     
     private func updateUI() {
@@ -33,11 +45,4 @@ final class ContestInfoViewController: UIViewController {
         imageView.image = UIImage(named: contest.site)
         imageView.layer.cornerRadius = imageView.frame.width / 2
     }
-    @IBAction func registerButtonPressed() {
-        guard let url = URL(string: contest.url) else { return }
-        
-        UIApplication.shared.open(url)
-        contest.isRegistered = true
-    }
-    
 }

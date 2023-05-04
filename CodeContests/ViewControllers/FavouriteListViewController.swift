@@ -15,10 +15,7 @@ final class FavouriteListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let navigationVC = segue.destination as? UINavigationController else {
-            return
-        }
-        guard let contestInfoVC = navigationVC.topViewController as? ContestInfoViewController else {
+        guard let contestInfoVC = segue.destination as? ContestInfoViewController else {
             return
         }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
